@@ -30,10 +30,10 @@ public class NotificationImpl implements NotificationService {
                     notifyUser(verifier.getUserId(), plan, c.getChainId());
                     verifier.setNotified(true);
                     verifier.setDateNotification(LocalDateTime.now());
-                    planRepository.save(plan);
                 }
             }
         });
+        planRepository.save(plan);
     }
 
     private void notifyUser(Long userId, Plan plan, Long chainId) {
