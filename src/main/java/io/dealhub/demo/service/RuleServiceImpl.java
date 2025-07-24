@@ -17,13 +17,13 @@ public class RuleServiceImpl implements RuleService {
 
 
     @Override
-    public Rule addRule(String condition, Long min, Long max, List<Long> verifuers) {
-        verifuers.forEach(userService::getUser);
+    public Rule addRule(String condition, Long min, Long max, List<Long> verifiers) {
+        verifiers.forEach(userService::getUser);
         Rule newRule = Rule.builder()
                 .condition(condition)
                 .min(min)
                 .max(max)
-                .verifiersIds(verifuers)
+                .verifiersIds(verifiers)
                 .build();
         return rulesRepository.save(newRule);
     }
